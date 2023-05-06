@@ -1,3 +1,4 @@
+using Basket.API.Repositories;
 using Microsoft.OpenApi.Models;
 
 namespace Basket.API;
@@ -20,6 +21,8 @@ public static class ServiceRegistration
         {
             options.Configuration = configuration.GetSection("CacheSettings:ConnectionString").Value;
         });
+        
+        service.AddScoped<IBasketRepository, BasketRepository>();
 
     }
 }
